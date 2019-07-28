@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+	<html style="height:100%; margin:0; padding:0">
+		<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+			<title>My Clock 2</title>
+      <link rel="stylesheet" href="C:\Users\Brandon\Documents\Atom Projects\MyClockProject\css\MyClock2.css">
+			<link rel="stylesheet" href="C:\Users\Brandon\Documents\Atom Projects\MyClockProject\css\Settings.css">
+			<link rel="stylesheet" href="C:\Users\Brandon\Documents\Atom Projects\MyClockProject\css\ColorPicker.css">
+      <script src="C:\Users\Brandon\Documents\Atom Projects\MyClockProject\js\MyClock2.js" charset="utf-8"></script>
+      <script src="C:\Users\Brandon\Documents\Atom Projects\MyClockProject\js\Settings.js" charset="utf-8"></script>
+      <script src="C:\Users\Brandon\Documents\Atom Projects\MyClockProject\js\ClockBackgroundCP.js" charset="utf-8"></script>
+      <script src="C:\Users\Brandon\Documents\Atom Projects\MyClockProject\js\ClockTextCP.js" charset="utf-8"></script>
+			<script src="https://unpkg.com/draggabilly@2/dist/draggabilly.pkgd.min.js"></script>
+
+
+		</head>
+
+		<body id="page" onload="launch(); settingsLaunch();" style="display:flex; height:100%; margin:0; padding:0; justify-content: center; align-items:center;">
+
+			<!-- Trigger/Open The Modal -->
+			<!-- The Modal -->
+			<div id="myModal" class="modal">
+
+			  <!-- Modal content -->
+			  <div class="modal-content">
+			    <span class="close">&times;</span>
+					<center>
+				    <h1>SETTINGS</h1>
+
+						<!-- FIRST SETTINGS OPTION -->
+						<div class="SettingOption">
+							<div class="SettingLabel" id="changeColor">Change Color</div>
+							<!-- COLOR PICKER TOGGLE SWITCH -->
+							<label class="switch" id="changeColorSwitch">
+							  <input id="theToggle" type="checkbox">
+							  <span class="slider round"></span>
+							</label>
+							<!-- END COLOR PICKER TOGGLE SWITCH -->
+						</div>
+						<!-- END FIRST SETTINGS OPTION -->
+
+						<br>
+						<br>
+
+						<div id="currentCP">Change Backgroud Color </div>
+
+						<!-- START BACKGROUND COLOR PICKER DIV -->
+				    <div class="ColorPickerGrid" id="BGColor">
+				      <table border="0">
+				        <tr>
+				          <td><button type="button" name="button" id="redButton" onclick="BGsetRed()"> C </button></td>
+				          <td><button type="button" name="button" id="orangeButton" onclick="BGsetOrange()"> C </button></td>
+				          <td><button type="button" name="button" id="yellowButton" onclick="BGsetYellow()"> C </button></td>
+				          <td><button type="button" name="button" id="greenButton" onclick="BGsetGreen()"> C </button></td>
+				        </tr>
+				        <tr>
+				          <td><button type="button" name="button" id="blueButton" onclick="BGsetBlue()"> C </button></td>
+				          <td><button type="button" name="button" id="indigoButton" onclick="BGsetIndigo()"> C </button></td>
+				          <td><button type="button" name="button" id="violetButton" onclick="BGsetViolet()"> C </button></td>
+				          <td><button type="button" name="button" id="cyanButton" onclick="BGsetCyan()"> C </button></td>
+				        </tr>
+				        <tr>
+				          <td><button type="button" name="button" id="pinkButton" onclick="BGsetPink()"> C </button></td>
+				          <td><button type="button" name="button" id="purpleButton" onclick="BGsetPurple()"> C </button></td>
+				          <td><button type="button" name="button" id="blackButton" onclick="BGsetBlack()"> C </button></td>
+				          <td><button type="button" name="button" id="whiteButton" onclick="BGsetWhite()"> C </button></td>
+				        </tr>
+				        <tr>
+				          <td><button type="button" name="button" id="greyButton" onclick="BGsetGrey()"> C </button></td>
+				          <td><button type="button" name="button" id="redButton" onclick="BGsetRed()"> C </button></td>
+				          <td><button type="button" name="button" id="redButton" onclick="BGsetRed()"> C </button></td>
+				          <td><button type="button" name="button" id="redButton" onclick="BGsetRed()"> C </button></td>
+				        </tr>
+				      </table>
+
+				      <button type="button" name="button" onclick="BGcustomColor()">Custom Color</button>
+				    </div>
+				    <!-- END BACKGROUND COLOR PICKER DIV -->
+
+				    <!-- START TEXT COLOR PICKER DIV -->
+				    <div class="ColorPickerGrid" id="TColor">
+				      <table border="0">
+				        <tr>
+				          <td><button type="button" name="button" id="redButton" onclick="TsetRed()"> C </button></td>
+				          <td><button type="button" name="button" id="orangeButton" onclick="TsetOrange()"> C </button></td>
+				          <td><button type="button" name="button" id="yellowButton" onclick="TsetYellow()"> C </button></td>
+				          <td><button type="button" name="button" id="greenButton" onclick="TsetGreen()"> C </button></td>
+				        </tr>
+				        <tr>
+				          <td><button type="button" name="button" id="blueButton" onclick="TsetBlue()"> C </button></td>
+				          <td><button type="button" name="button" id="indigoButton" onclick="TsetIndigo()"> C </button></td>
+				          <td><button type="button" name="button" id="violetButton" onclick="TsetViolet()"> C </button></td>
+				          <td><button type="button" name="button" id="cyanButton" onclick="TsetCyan()"> C </button></td>
+				        </tr>
+				        <tr>
+				          <td><button type="button" name="button" id="pinkButton" onclick="TsetPink()"> C </button></td>
+				          <td><button type="button" name="button" id="purpleButton" onclick="TsetPurple()"> C </button></td>
+				          <td><button type="button" name="button" id="blackButton" onclick="TsetBlack()"> C </button></td>
+				          <td><button type="button" name="button" id="whiteButton" onclick="TsetWhite()"> C </button></td>
+				        </tr>
+				        <tr>
+				          <td><button type="button" name="button" id="greyButton" onclick="TsetGrey()"> C </button></td>
+				          <td><button type="button" name="button" id="redButton" onclick="TsetRed()"> C </button></td>
+				          <td><button type="button" name="button" id="redButton" onclick="TsetRed()"> C </button></td>
+				          <td><button type="button" name="button" id="redButton" onclick="TsetRed()"> C </button></td>
+				        </tr>
+				      </table>
+				      <button type="button" name="button" onclick="TcustomColor()">Custom Color</button>
+				    </div>
+				    <!-- END TEXT COLOR PICKER DIV -->
+
+
+						<!-- SECOND SETTINGS OPTION -->
+						<div class="SettingOption">
+							<div class="SettingLabel" id="changeTimeFormat">Change Time Format</div>
+							<!-- COLOR PICKER TOGGLE SWITCH -->
+							<label class="switch" id="changeTimeSwitch">
+							  <input id="theTimeToggle" type="checkbox">
+							  <span class="slider round"></span>
+							</label>
+							<!-- END COLOR PICKER TOGGLE SWITCH -->
+						</div>
+						<!-- END SECOND SETTINGS OPTION -->
+						<button id="switch" type="button" name="timeFormatToggle"> Change Time Format </button>
+					</center>
+			  </div>
+				<!-- END MODAL WINDOW DIV -->
+			</div>
+
+      <div id="clocktext" style="font-kerning:none">
+
+				<center>
+
+				  <p class="theDate" id="day"></p>
+
+					<p id="time"></p>
+
+					<p class="theDate" id="date"></p>
+
+					<br>
+
+					<button id="settingsBTN" type="button" name="button"> SETTINGS </button>
+
+					<br><br>
+
+					<p id="currentTimeFormat"> Current Time Format: </p>
+
+				</center>
+
+			</div>
+
+		</body>
+	</html>

@@ -1,0 +1,28 @@
+html {
+   background: #000000;
+   font-family: sans-serif;
+   font-weight: bold;
+   color: #15F4EE;
+}
+
+#time {font-size: 15vw;}
+.theDate {font-size: 7vw;}
+
+#settingsBTN {
+ background-color: transparent;
+ color: inherit;/* #15F4EE; */
+ text-align: center;
+ display: inline-block;
+ font-size: 1vw;
+ font-weight: 900;
+ border: 2px solid transparent;
+ border-radius: 5px;
+}
+
+#settingsBTN:hover {
+ border: 2px solid black;
+ background-color: white;
+}
+
+#currentTimeFormat {font-size: 1vw;}
+p { margin: 5px; }
