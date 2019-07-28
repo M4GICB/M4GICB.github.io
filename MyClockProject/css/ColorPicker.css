@@ -1,0 +1,25 @@
+#page {background-color: black;}
+
+/* #time {color: cyan;} */
+
+#redButton {color: #850101; background-color: #850101;}
+#orangeButton {background-color: orange; color: orange;}
+#yellowButton {background-color: #ca912a; color: #ca912a;}
+#greenButton {background-color: green; color: green;}
+#blueButton {background-color: blue; color: blue;}
+#indigoButton {background-color: indigo; color: indigo;}
+#violetButton {background-color: violet; color: violet;}
+#cyanButton {background-color: cyan; color: cyan;}
+#pinkButton {background-color: pink; color: pink;}
+#purpleButton {background-color: purple; color: purple;}
+#blackButton {background-color: black; color: black;}
+#whiteButton {background-color: white; color: white;}
+#greyButton {background-color: grey; color: grey;}
+
+button {
+  border: 2px solid white;
+}
+
+.test {
+  border-style: solid;
+}
