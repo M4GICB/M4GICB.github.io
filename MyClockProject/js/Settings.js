@@ -30,7 +30,7 @@ function settingsLaunch() {
   var startingHCPGrid = document.getElementById('TColor');
   startingHCPGrid.style.display = 'none';
 
-  checkbox = document.getElementById('theToggle');
+  var checkbox = document.getElementById('theToggle');
   checkbox.addEventListener('change', e => {
     if(e.target.checked){
         document.getElementById('currentCP').innerHTML = "Text Color";
@@ -52,7 +52,7 @@ function settingsLaunch() {
   var checkbox2 = document.getElementById('theTimeToggle');
   checkbox2.addEventListener('change', e => {
     if(e.target.checked){
-      changeTime(); 
+      changeTime();
     }
 
     else {
