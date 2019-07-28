@@ -52,7 +52,7 @@ function settingsLaunch() {
   var checkbox2 = document.getElementById('theTimeToggle');
   checkbox2.addEventListener('change', e => {
     if(e.target.checked){
-      changeTime();
+      changeTime(); 
     }
 
     else {
