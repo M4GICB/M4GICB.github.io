@@ -77,10 +77,9 @@ function launch() {
     checkFormat(milTime);
   } // end changeTime function
 
-  var checkbox2 = document.getElementById('theTimeToggle');
-  checkbox2.addEventListener('change', e => {
-      changeTime();
-  }); // end checkbox event listener function.
+  // functionality of the slider within the settings menu
+  var timeSlider = document.getElementById('theTimeToggle');
+  timeSlider.addEventListener('change', e => {changeTime();});
 
   function updateClock() {
     document.getElementById("currentTimeFormat").innerHTML = (milTime) ? "Current Time Format: 24 HR" : "Current Time Format: 12 HR";
