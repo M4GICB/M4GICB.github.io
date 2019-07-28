@@ -49,14 +49,14 @@ function settingsLaunch() {
     } // end else block
   }); // end checkbox event listener function.
 
-  checkbox2 = document.getElementById('theTimeToggle');
-  checkbox.addEventListener('change', e => {
+  var checkbox2 = document.getElementById('theTimeToggle');
+  checkbox2.addEventListener('change', e => {
     if(e.target.checked){
       changeTime();
     }
 
     else {
-      
+
     } // end else block
   }); // end checkbox event listener function.
 
