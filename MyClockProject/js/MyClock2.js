@@ -72,12 +72,11 @@ function launch() {
     document.getElementById("date").innerHTML = month + " " + numOfMonth + ", " + year;
   } // end getClockText function
 
-  /* This section was originally button functionality for changing the time format.
-   * It is commented out because the button was replaced with a slider. */
+  // function to change the time format based on what it currently is
+  function changeTime() { checkFormat(milTime); }
+
+  /* This line was originally button functionality for changing the time format. It is commented out because the button was replaced with a slider. */
   // document.getElementById("switch").addEventListener("click", changeTime);
-  // function changeTime() {
-  //   checkFormat(milTime);
-  // } // end changeTime function
 
   // functionality of the time format slider within the settings menu
   var timeSlider = document.getElementById('theTimeToggle');
