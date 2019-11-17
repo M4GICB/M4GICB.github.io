@@ -81,6 +81,13 @@ function makeCalendar() {
     cell.innerHTML = '<td id=' + cell + '>' + (i+1) + '</td>'; // puts the number in the cell
     cell.style.backgroundColor = "lightcyan";
     if(((tDay+1) % 7) == 0) {rowNum++;} // if the day of the week is divisible by 7, start a new week thus a new row
+
+    /* If block to find the current date durring the main calendar creation for loop iteration and set its cell's color to stand out */
+    if(i+1 == day){ // if the day the loop is on matches the current date
+      if(viewingMonth == month) { // if the viewing month the calendar is building for matches the current date's month
+        if(viewingYear == year) {cell.style.backgroundColor = "#E77471";} // if the viewing year the calendar is building for matches the current date's year
+      } // end if block for checking current month to viewing month
+    } // end main if block for checking today's date to iteration date
   } // end for loop
   // console.log(currentDaysCellIDs);
 
