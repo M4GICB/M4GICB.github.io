@@ -38,9 +38,14 @@ function settingsLaunch() {
     if (event.target == modal) {
       modal.style.display = "none";
     }
+    if (event.target == calendarModal) {
+      calendarModal.style.display = "none";
+    }
   }
 
   var draggie = new Draggabilly('.modal');
+  var calendarDraggie = new Draggabilly('.CalendarModal');
+
 
   var startingHCPGrid = document.getElementById('TColor');
   startingHCPGrid.style.display = 'none';
