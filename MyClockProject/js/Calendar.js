@@ -91,6 +91,10 @@ function makeCalendar() {
   var gMonthNext = tMonth + 1; // gets the next month (next month in correspondence to current table month)
 
   var daysInPrevMonth = days_in_month[gMonthPrev]; // gets the number of days in the previous month
+  if(viewingMonth == 0){daysInPrevMonth = 31;} // if the month is january, then the previous month (december from the previous year) has 31 days
+                                               // this is a nessesary line because with out it, there is a NaN or an undefined bug.
+                                               // It is unable to go to a previous month from a previous year AKA going to december form January
+                                               // This is a specific edge case.
 
   var gCellIDList = []; // a list of grey cell IDs to be used for later access. Initialized to an empty array
   /* for loop to place the correct number into the empty cells at the start of the table and to turn the cells grey */
