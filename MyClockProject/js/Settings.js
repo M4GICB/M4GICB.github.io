@@ -5,24 +5,33 @@ function settingsLaunch() {
   // Get the button that opens the modal
   var btn = document.getElementById("settingsBTN");
 
-  // Get the button that opens the calendar
+  // Get the button that opens the modal
   var btn2 = document.getElementById("calendarBTN");
-  btn2.onclick = function() { // calendar button functionality
-  console.log("hello");
-  }
+  var calendarModal = document.getElementById("myCalendarModal");
+
 
   // Get the <span> element that closes the modal
   var span = document.getElementsByClassName("close")[0];
+  var calendarSpan = document.getElementsByClassName("closeCalendar")[0];
+
 
   // When the user clicks on the button, open the modal
   btn.onclick = function() {
-  modal.style.display = "block";
+    modal.style.display = "block";
+  }
+
+  btn2.onclick = function() {
+    calendarModal.style.display = "block";
   }
 
   // When the user clicks on <span> (x), close the modal
   span.onclick = function() {
-  modal.style.display = "none";
-}
+    modal.style.display = "none";
+  }
+
+  calendarSpan.onclick = function() {
+    calendarModal.style.display = "none";
+  }
 
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function(event) {
@@ -36,7 +45,7 @@ function settingsLaunch() {
   var startingHCPGrid = document.getElementById('TColor');
   startingHCPGrid.style.display = 'none';
 
-  var checkbox = document.getElementById('theToggle');
+  checkbox = document.getElementById('theToggle');
   checkbox.addEventListener('change', e => {
     if(e.target.checked){
         document.getElementById('currentCP').innerHTML = "Text Color";

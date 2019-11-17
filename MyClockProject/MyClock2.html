@@ -10,12 +10,13 @@
       <script src="https://M4GICB.github.io/MyClockProject/js/Settings.js" charset="utf-8"></script>
       <script src="https://M4GICB.github.io/MyClockProject/js/ClockBackgroundCP.js" charset="utf-8"></script>
       <script src="https://M4GICB.github.io/MyClockProject/js/ClockTextCP.js" charset="utf-8"></script>
+			<script src="https://M4GICB.github.io/MyClockProject/js/Calendar.js" charset="utf-8"></script>
 			<script src="https://unpkg.com/draggabilly@2/dist/draggabilly.pkgd.min.js"></script>
 
 
 		</head>
 
-		<body id="page" onload="launch(); settingsLaunch();" style="display:flex; height:100%; margin:0; padding:0; justify-content: center; align-items:center;">
+		<body id="page" onload="launch(); settingsLaunch(); makeCalendar();" style="display:flex; height:100%; margin:0; padding:0; justify-content: center; align-items:center;">
 
 			<!-- Trigger/Open The Modal -->
 			<!-- The Modal -->
@@ -25,7 +26,7 @@
 			  <div class="modal-content">
 			    <span class="close">&times;</span>
 					<center>
-				    <h1 id="settingsHeader">SETTINGS</h1>
+				    <h1>SETTINGS</h1>
 
 						<!-- FIRST SETTINGS OPTION -->
 						<div class="SettingOption">
@@ -109,7 +110,6 @@
 				    </div>
 				    <!-- END TEXT COLOR PICKER DIV -->
 
-						<br>
 
 						<!-- SECOND SETTINGS OPTION -->
 						<div class="SettingOption">
@@ -122,13 +122,105 @@
 							<!-- END COLOR PICKER TOGGLE SWITCH -->
 						</div>
 						<!-- END SECOND SETTINGS OPTION -->
-
-						<!-- Commenting this button out because its functionality was replaced with a slider instead. -->
-						<!-- <button id="switch" type="button" name="timeFormatToggle"> Change Time Format </button> -->
+						<button id="switch" type="button" name="timeFormatToggle"> Change Time Format </button>
 					</center>
 			  </div>
 				<!-- END MODAL WINDOW DIV -->
 			</div>
+
+			<!-- Trigger/Open The Modal -->
+			<!-- The Modal -->
+			<div id="myCalendarModal" class="modal">
+				<!-- Modal content -->
+				<div class="modal-content">
+					<span class="closeCalendar">&times;</span>
+					<center>
+						<h1>CALENDAR</h1>
+						<br>
+						<br>
+						<p align="center">
+							<button type="button" name="goToPrevMonth" onclick="goToPrevMonth()">Previous</button>
+							<button type="button" name="goToToday" onclick="goToToday()">Today</button>
+							<button type="button" name="goToNextMonth" onclick="goToNextMonth()">Next</button>
+						</p>
+						<!-- table to display the month as a header row -->
+						<table id="MonthTable" border="1" align="center">
+							<tr>
+								<th id="MonthRow">MONTH</th>
+							</tr>
+						</table>
+						<!-- Calendar table -->
+						<table id="CalendarTable" border="0" align="center" width=50%>
+							<tr id="DaysOfWeekRow">
+								<th width=14.29% >Sunday</th>
+								<th width=14.29% >Monday</th>
+								<th width=14.29% >Tuesday</th>
+								<th width=14.29% >Wednesday</th>
+								<th width=14.29% >Thurasday</th>
+								<th width=14.29% >Friday</th>
+								<th width=14.29% >Saturday</th>
+							</tr>
+							<tr id="row0">
+								<td id="RC00"> </td>
+								<td id="RC01"> </td>
+								<td id="RC02"> </td>
+								<td id="RC03"> </td>
+								<td id="RC04"> </td>
+								<td id="RC05"> </td>
+								<td id="RC06"> </td>
+							</tr>
+							<tr id="row1">
+								<td id="RC10"> </td>
+								<td id="RC11"> </td>
+								<td id="RC12"> </td>
+								<td id="RC13"> </td>
+								<td id="RC14"> </td>
+								<td id="RC15"> </td>
+								<td id="RC16"> </td>
+							</tr>
+							<tr id="row2">
+								<td id="RC20"> </td>
+								<td id="RC21"> </td>
+								<td id="RC22"> </td>
+								<td id="RC23"> </td>
+								<td id="RC24"> </td>
+								<td id="RC25"> </td>
+								<td id="RC26"> </td>
+							</tr>
+							<tr id="row3">
+								<td id="RC30"> </td>
+								<td id="RC31"> </td>
+								<td id="RC32"> </td>
+								<td id="RC33"> </td>
+								<td id="RC34"> </td>
+								<td id="RC35"> </td>
+								<td id="RC36"> </td>
+							</tr>
+							<tr id="row4">
+								<td id="RC40"> </td>
+								<td id="RC41"> </td>
+								<td id="RC42"> </td>
+								<td id="RC43"> </td>
+								<td id="RC44"> </td>
+								<td id="RC45"> </td>
+								<td id="RC46"> </td>
+							</tr>
+							<tr id="row5">
+								<td id="RC50"> </td>
+								<td id="RC51"> </td>
+								<td id="RC52"> </td>
+								<td id="RC53"> </td>
+								<td id="RC54"> </td>
+								<td id="RC55"> </td>
+								<td id="RC56"> </td>
+							</tr>
+						</table>
+
+					</center>
+				</div>
+				<!-- END CALENDAR MODAL WINDOW DIV -->
+			</div>
+
 
       <div id="clocktext" style="font-kerning:none">
 
