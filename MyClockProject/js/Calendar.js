@@ -54,6 +54,7 @@ function makeCalendar() {
   var dayOfMonth = tDate.getDate(); // gets the number day of the month (SAME AS i+1)
 
   tDate.setMonth(viewingMonth);
+  tDate.setFullYear(viewingYear);
 
   var tMonth = tDate.getMonth();
   var tTotal = days_in_month[tMonth]; // total days in the current month
@@ -72,7 +73,7 @@ function makeCalendar() {
 
     /* Set the Month header row for the calendar */
     var currentMonth = document.getElementById("MonthRow");
-    currentMonth.innerHTML = '<th id="MonthRow">' + months[tMonth] + " " + viewingYear + '</th>';
+    currentMonth.innerHTML = '<th id="MonthRow">' + months[viewingMonth] + " " + viewingYear + '</th>';
 
     var cellID = determineCell(rowNum, tDay); // gets the cell's id
     currentDaysCellIDs.push(cellID); // adds the current day cell IDs to the list of colored cell IDs to be accessed later
@@ -234,6 +235,8 @@ function createCellObjs(cellObjsArr, currentViewingMonth) {
 function goToNextMonth() {
   if(viewingMonth == 11) {viewingMonth = 0; viewingDate.setFullYear(viewingDate.getFullYear() + 1); viewingYear = viewingYear + 1;}
   else {viewingMonth = viewingMonth+1;} // changes the current viewing month to the next month
+  if(viewingYear%4 == 0 && year!=1900) {days_in_month[1]=29;} // leap year control
+  else{days_in_month[1]=28;} // non leap year control
   makeCalendar(); // rebuilds the calendar and re creates the data of each cell
   var newCellObjs = new Array(); // makes a new list to hold the new Cell Objects
   createCellObjs(newCellObjs, viewingMonth); // makes the new cell objects based off of their newly created information
@@ -245,6 +248,8 @@ function goToNextMonth() {
 function goToPrevMonth() {
   if(viewingMonth == 0) {viewingMonth = 11; viewingDate.setFullYear(viewingDate.getFullYear() - 1); viewingYear = viewingYear - 1;}
   else {viewingMonth = viewingMonth-1;} // changes the current viewing month to the previous month
+  if(viewingYear%4 == 0 && year!=1900) {days_in_month[1]=29;} // leap year control
+  else{days_in_month[1]=28;} // non leap year control
   makeCalendar(); // rebuilds the calendar and re creates the data of each cell
   var newCellObjs = new Array(); // makes a new list to hold the new Cell Objects
   createCellObjs(newCellObjs, viewingMonth); // makes the new cell objects based off of their newly created information
@@ -257,6 +262,8 @@ function goToToday() {
   var d2 = new Date(); // creates a new date object to reflect the current month without updateing the offical date object
   viewingMonth = d2.getMonth(); // changes the current viewing month to the current month
   viewingYear = d2.getFullYear(); // changes the current viewing year to the current year
+  if(viewingYear%4 == 0 && year!=1900) {days_in_month[1]=29;} // leap year control
+  else{days_in_month[1]=28;} // non leap year control
   makeCalendar(); // rebuilds the calendar and re creates the data of each cell
   var newCellObjs = new Array(); // makes a new list to hold the new Cell Objects
   createCellObjs(newCellObjs, viewingMonth); // makes the new cell objects based off of their newly created information
