@@ -31,6 +31,7 @@ var cellObjs = new Array();
 
 var viewingDate = new Date();
 var viewingMonth = viewingDate.getMonth();
+var viewingYear = viewingDate.getFullYear();
 
 /* END GLOBAL VARIABLES SECTION */
 /***************************************************************************************************************************************************/
@@ -71,7 +72,7 @@ function makeCalendar() {
 
     /* Set the Month header row for the calendar */
     var currentMonth = document.getElementById("MonthRow");
-    currentMonth.innerHTML = '<th id="MonthRow">' + months[tMonth] + '</th>';
+    currentMonth.innerHTML = '<th id="MonthRow">' + months[tMonth] + " " + viewingYear + '</th>';
 
     var cellID = determineCell(rowNum, tDay); // gets the cell's id
     currentDaysCellIDs.push(cellID); // adds the current day cell IDs to the list of colored cell IDs to be accessed later
@@ -231,7 +232,7 @@ function createCellObjs(cellObjsArr, currentViewingMonth) {
 
 /* Button functionality for going to the next month */
 function goToNextMonth() {
-  if(viewingMonth == 11) {viewingMonth = 0; viewingDate.setFullYear(viewingDate.getFullYear() + 1);}
+  if(viewingMonth == 0) {viewingMonth = 11; viewingDate.setFullYear(viewingDate.getFullYear() - 1); viewingYear = viewingYear + 1;}
   else {viewingMonth = viewingMonth+1;} // changes the current viewing month to the next month
   makeCalendar(); // rebuilds the calendar and re creates the data of each cell
   var newCellObjs = new Array(); // makes a new list to hold the new Cell Objects
@@ -242,7 +243,7 @@ function goToNextMonth() {
 
 /* Button functionality for going to the previous month */
 function goToPrevMonth() {
-  if(viewingMonth == 0) {viewingMonth = 11; viewingDate.setFullYear(viewingDate.getFullYear() - 1);}
+  if(viewingMonth == 0) {viewingMonth = 11; viewingDate.setFullYear(viewingDate.getFullYear() - 1); viewingYear = viewingYear - 1;}
   else {viewingMonth = viewingMonth-1;} // changes the current viewing month to the previous month
   makeCalendar(); // rebuilds the calendar and re creates the data of each cell
   var newCellObjs = new Array(); // makes a new list to hold the new Cell Objects

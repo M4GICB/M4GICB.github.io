@@ -22,6 +22,7 @@ function settingsLaunch() {
 
   btn2.onclick = function() {
     calendarModal.style.display = "block";
+    goToToday(); // reset calendar back to current month whenever it is opened
   }
 
   // When the user clicks on <span> (x), close the modal
