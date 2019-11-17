@@ -24,7 +24,7 @@ var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'S
 
 /* Today's date */
 var date_today = days[DATE.getDay()] + ', ' + months[month] + ' ' + day + ', ' + year;
-console.log("Today's Date: " + date_today);
+// console.log("Today's Date: " + date_today);
 
 /* Array to store the object created for each cell */
 var cellObjs = new Array();
@@ -80,7 +80,7 @@ function makeCalendar() {
     cell.style.backgroundColor = "lightcyan";
     if(((tDay+1) % 7) == 0) {rowNum++;} // if the day of the week is divisible by 7, start a new week thus a new row
   } // end for loop
-  console.log(currentDaysCellIDs);
+  // console.log(currentDaysCellIDs);
 
   /* process to turn the empty cells grey and fill in the previous (or next) month's numbers*/
   tDate.setDate(1); // sets date to 1 to start the process
@@ -118,21 +118,9 @@ function makeCalendar() {
                                                // this will restart the loop and continue to fill out the table without causing an infinitie loop
                                                // checking if the row num is less than 5 checks if the process is on the final row of the table
   } // end for loop
-  console.log(gCellIDList);
+  // console.log(gCellIDList);
   cellsAreButtons(); // turns ever cell in the table into a clickable button
   createCellObjs(cellObjs, tMonth); // creates an object for every cell of the table.
-
-  /* FOR LOOPS TO CHANGE COLORS OF CELLS AS GROUPS */
-  // for (var i = 0; i < currentDaysCellIDs.length; i++) { // iterate through the list of colored cells
-  //   var testCell = document.getElementById(currentDaysCellIDs[i]);
-  //   testCell.style.backgroundColor = "red";
-  // } // end colored cell coloring for loop
-  //
-  // for (var i = 0; i < gCellIDList.length; i++) { // iterate through the list of grey cells
-  //   var testCell2 = document.getElementById(gCellIDList[i]);
-  //   testCell2.style.backgroundColor = "blue";
-  // } // end grey cell coloring for loop
-  /* FOR LOOPS TO CHANGE COLORS OF CELLS AS GROUPS */
 } // end makeCalendar function
 
 /***************************************************************************************************************************************************/
@@ -164,7 +152,7 @@ function cellsAreButtons(){
 
 /* Function for telling the website what to do when the cell is clicked */
 function clickCell(cell) {
-  console.log(cell.id); // prints the cell's id to the console (USED FOR TESTING PURPOSES)
+  // console.log(cell.id); // prints the cell's id to the console (USED FOR TESTING PURPOSES)
 
     /* if case to say "if a cell that is not a date is clicked, do nothing" */
     if(cell.id != "") { // if the cell DOES  have an id (this should only apply to date cells)
@@ -214,9 +202,9 @@ function CellObj(cellID, cellMonth) {
 
   /* a function to print the cell's date to the console. (USED FOR TESTING PURPOSES.) */
   this.greeting = function() {
-    console.log('Day of Month: ' + this.day); // prints the cell's day of the month
-    console.log('Date: ' + this.cellDate); // prints the cell's date
-    console.log("---"); // prints a line break
+    // console.log('Day of Month: ' + this.day); // prints the cell's day of the month
+    // console.log('Date: ' + this.cellDate); // prints the cell's date
+    // console.log("---"); // prints a line break
   }; // end greeting function
 } // end CellObj class
 
@@ -234,13 +222,6 @@ function createCellObjs(cellObjsArr, currentViewingMonth) {
       cellObjsArr.push(new CellObj(cell.id, currentViewingMonth)); // make a new object for the cell and push it to the list
     } // end if block for checking the cell's id
   } // end for loop for iterating through all cells
-
-   /* for loop to test that the array of objects was properly created (USED FOR TESTING PURPOSES)*/
-   // for(var i = 0; i < cellObjs.length; i++) { // iterates through the full list of cell objects
-   //   console.log(cellObjs[i].name); // prints the cell's id to the console
-   //   cellObjs[i].greeting(); // prints the cell's greeting to the console
-   //   console.log("___________________"); // prints a line break
-   // } // end for loop
 } // end createCellObjs function
 
 /***************************************************************************************************************************************************/
@@ -256,7 +237,7 @@ function goToNextMonth() {
   var newCellObjs = new Array(); // makes a new list to hold the new Cell Objects
   createCellObjs(newCellObjs, viewingMonth); // makes the new cell objects based off of their newly created information
   cellObjs = newCellObjs; // sets the list of cell objects equal to the new list
-  console.log("The month currently being viewed is:    " + months[viewingMonth]);
+  // console.log("The month currently being viewed is:    " + months[viewingMonth]);
 } // end goToNextMonth function
 
 /* Button functionality for going to the previous month */
@@ -267,7 +248,7 @@ function goToPrevMonth() {
   var newCellObjs = new Array(); // makes a new list to hold the new Cell Objects
   createCellObjs(newCellObjs, viewingMonth); // makes the new cell objects based off of their newly created information
   cellObjs = newCellObjs; // sets the list of cell objects equal to the new list
-  console.log("The month currently being viewed is:    " + months[viewingMonth]);
+  // console.log("The month currently being viewed is:    " + months[viewingMonth]);
 } // end goToPrevMonth function
 
 /* Button functionality for going to the current month */
@@ -278,7 +259,7 @@ function goToToday() {
   var newCellObjs = new Array(); // makes a new list to hold the new Cell Objects
   createCellObjs(newCellObjs, viewingMonth); // makes the new cell objects based off of their newly created information
   cellObjs = newCellObjs; // sets the list of cell objects equal to the new list
-  console.log("Today's Date: " + date_today);
+  // console.log("Today's Date: " + date_today);
 } // end goToToday function
 
 /***************************************************************************************************************************************************/
@@ -298,7 +279,7 @@ function goToToday() {
 
 
 function getCellID(cell) {
-    if(cell.id != "") {console.log(cell.id);}
+    // if(cell.id != "") {console.log(cell.id);}
 } // end getCellID function
 
 
@@ -306,16 +287,6 @@ function mOver(cID) {
   var theID = document.getElementById(cID);
   theID.style.backgroundColor = "red";
 } // end mOver function
-
-// // var cell = determineCell(0, 0);
-// var cell = 'RC00';
-// console.log(cell);
-// var cellID = document.getElementById(cell);
-// cellID.innerHTML = "hello";
-
-/* TEST USED TO MODIFY THE CONTENTS OF A CELL... IT WORKED. */
-// var boom = document.getElementById("RC11");
-// boom.innerHTML = '<td id="RC11">5</td>';
 
 /* This is a test function to add rows to a table at the click of a button */
 function testFunction(){
