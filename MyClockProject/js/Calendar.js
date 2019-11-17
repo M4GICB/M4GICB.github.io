@@ -232,7 +232,7 @@ function createCellObjs(cellObjsArr, currentViewingMonth) {
 
 /* Button functionality for going to the next month */
 function goToNextMonth() {
-  if(viewingMonth == 11) {viewingMonth = 11; viewingDate.setFullYear(viewingDate.getFullYear() + 1); viewingYear = viewingYear + 1;}
+  if(viewingMonth == 11) {viewingMonth = 0; viewingDate.setFullYear(viewingDate.getFullYear() + 1); viewingYear = viewingYear + 1;}
   else {viewingMonth = viewingMonth+1;} // changes the current viewing month to the next month
   makeCalendar(); // rebuilds the calendar and re creates the data of each cell
   var newCellObjs = new Array(); // makes a new list to hold the new Cell Objects
