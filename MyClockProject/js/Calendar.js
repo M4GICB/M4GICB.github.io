@@ -256,6 +256,7 @@ function goToPrevMonth() {
 function goToToday() {
   var d2 = new Date(); // creates a new date object to reflect the current month without updateing the offical date object
   viewingMonth = d2.getMonth(); // changes the current viewing month to the current month
+  viewingYear = d2.getFullYear(); // changes the current viewing year to the current year
   makeCalendar(); // rebuilds the calendar and re creates the data of each cell
   var newCellObjs = new Array(); // makes a new list to hold the new Cell Objects
   createCellObjs(newCellObjs, viewingMonth); // makes the new cell objects based off of their newly created information
